@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ieee_week9/image_item.dart';
 
 import 'data.dart';
 
@@ -32,20 +33,10 @@ class HomeScreen extends StatelessWidget {
                   shrinkWrap: true,
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2, childAspectRatio: 1 / 1.3),
-                  itemBuilder: (context, index) => Padding(
-                    padding: const EdgeInsets.all(15.0),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(20),
-                      child: SizedBox(
-                        height: 600,
-                        child: Image.asset(
-                          images[index],
-                          fit: BoxFit.cover,
-                          height: 300,
-                        ),
-                      ),
-                    ),
-                  ),
+                  itemBuilder: (context, index) {
+                    String image = images[index];
+                    return ImageItem(image: image);
+                  },
                 ),
               ],
             ),
